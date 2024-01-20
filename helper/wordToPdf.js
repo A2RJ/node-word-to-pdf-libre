@@ -22,7 +22,7 @@ libre.convertAsync = promisify(libre.convert);
 
 async function convertToPDF(fileName) {
     const ext = '.pdf'
-    const inputPath = path.join(__dirname, `../assets/file/${fileName}.docx`);
+    const inputPath = path.join(__dirname, `../assets/file/${fileName}`);
     const outputPath = path.join(__dirname, `../assets/file/${fileName}${ext}`);
 
     const docxBuf = await fs.readFile(inputPath);
@@ -33,6 +33,20 @@ async function convertToPDF(fileName) {
     return outputPath;
 }
 
+async function convertToPDFString(fileName) {
+    const ext = '.pdf'
+    const inputPath = path.join(__dirname, `../assets/file/${fileName}`);
+    const outputPath = path.join(__dirname, `../assets/file/${fileName}${ext}`);
+
+    const docxBuf = await fs.readFile(inputPath);
+
+    let pdfBuf = await libre.convertAsync(docxBuf, ext, undefined);
+
+    await fs.writeFile(outputPath, pdfBuf);
+    return fileName + ext;
+}
+
 module.exports = {
     convertToPDF,
+    convertToPDFString
 };

@@ -3,13 +3,13 @@ const ErrorDetail = {
         message: "You're not authorize",
         statusCode: 401
     },
-    UNAUTHORIZE1: {
-        message: "You're not authorize 1",
-        statusCode: 401
+    FILE_IS_REQUIRED: {
+        message: "File is required",
+        statusCode: 422
     },
-    UNAUTHORIZE2: {
-        message: "You're not authorize 2",
-        statusCode: 401
+    FILENAME_IS_REQUIRED: {
+        message: "Filename is required",
+        statusCode: 404
     },
 };
 
