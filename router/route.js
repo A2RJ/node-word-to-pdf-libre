@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path')
-const { convertToPDF, convertToPDFString } = require('../helper/wordToPdf');
+const { convertToPDFString } = require('../helper/wordToPdf');
 
 const multer = require('multer');
 const { CustomError, ErrorDetail } = require('../helper/errorHandler');
